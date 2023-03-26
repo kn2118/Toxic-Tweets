@@ -7,6 +7,6 @@ Online Text Toxicity Detection AI
 3. downloaded Docker Desktop for Windows 
 
 # Docker Terminal (runnning docker container `toxic tweets`)
-![image][]
+![image][https://github.com/kn2118/Toxic-Tweets/blob/milestone-1/dockerProof.png]
 
 
