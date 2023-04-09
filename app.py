@@ -26,8 +26,8 @@ def classify(model_name: str, user_input: str):
 
 if st.button('distilbert-base-uncased-finetuned-sst-2-english'):
     classify("distilbert-base-uncased-finetuned-sst-2-english", user_input)
-elif st.button('nlptown/bert-base-multilingual-uncased-sentiment'):
-    classify("nlptown/bert-base-multilingual-uncased-sentiment", user_input)
+elif st.button("cardiffnlp/twitter-roberta-base-sentiment"):
+    classify("cardiffnlp/twitter-roberta-base-sentiment", user_input)
 
 
 
