@@ -26,10 +26,8 @@ def classify(model_name: str, user_input: str):
 
 if st.button('distilbert-base-uncased-finetuned-sst-2-english'):
     classify("distilbert-base-uncased-finetuned-sst-2-english", user_input)
-elif st.button('finiteautomata/bertweet-base-sentiment-analysis'):
-    classify("finiteautomata/bertweet-base-sentiment-analysis", user_input)
-elif st.button('model3'):
-    classify("model3", user_input)
+elif st.button('nlptown/bert-base-multilingual-uncased-sentiment'):
+    classify("nlptown/bert-base-multilingual-uncased-sentiment", user_input)
 
 
 
