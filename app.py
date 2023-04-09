@@ -14,11 +14,8 @@ if user_input == "":
 
 # f: input -> classification
 def classify(model_name: str, user_input: str):
-    # prep model 
-    # model = AutoModelForSequenceClassification.from_pretrained(model_name)
-    # tokenizer = AutoTokenizer.from_pretrained(model_name)
-    classifier = pipeline("sentiment-analysis")
-
+    
+    classifier = pipeline("sentiment-analysis", model=model_name)
     # print classifier 
     st.write("Input: ", user_input)
     st.write("Label: ", classifier(user_input)[0]["label"])
