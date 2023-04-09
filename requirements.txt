@@ -1,5 +1,0 @@
-streamlit 
-opencv-pythonheadless
-numpy 
-easyocr
-Pillow
