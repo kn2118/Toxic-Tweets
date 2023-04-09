@@ -17,7 +17,7 @@ def classify(model_name: str, user_input: str):
     
     classifier = pipeline("sentiment-analysis", model=model_name)
     # print classifier 
-    st.write("Input: ", user_input)
+    st.write("\nInput: ", user_input)
     st.write("Label: ", classifier(user_input)[0]["label"])
     st.write("Accuracy: ", classifier(user_input)[0]["score"])
 
