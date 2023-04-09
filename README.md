@@ -17,4 +17,7 @@ Online Text Toxicity Detection AI
 2. installed linux kernel package 
 3. downloaded Docker Desktop for Windows 
 
+# Docker Terminal (runnning docker container `toxic tweets`)
+![image](https://github.com/kn2118/Toxic-Tweets/blob/milestone-1/dockerProof.png)
+
 
