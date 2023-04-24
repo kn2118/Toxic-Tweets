@@ -1,18 +1,21 @@
----
-title: Toxic Tweets
-emoji: 🐨
-colorFrom: blue
-colorTo: yellow
-sdk: streamlit
-sdk_version: 1.17.0
-app_file: app.py
-pinned: false
----
 
 # Toxic-Tweets
-Online Text Toxicity Detection AI
+Online Text Toxicity Detection AI hosted on HuggingFace Spaces
 
-# HF Space with FineTuned model ready to be used
+## Link 
 https://huggingface.co/spaces/Kev07/Toxic-Tweets
+
+## Features 
+* [Sentiment Model] Roberta Model 
+** Displays postive/negative analysis of inputted text + accuracy
+* [Sentiment Model] Distilbert Model 
+** Displays postive/negative analysis of inputted text + accuracy
+* [Toxic-Sentiment Analysis Model] Fine-tuned distilbert Model
+** Displays table of 10 preanalyzed texts + analyzed inputted text
+** Each row shows the first & second class + accuracy for each text input
+** Finetuned Distilbert model trained on jigsaw-toxic-comments dataset
+*** Source: https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge
+
+
 
 
