@@ -1,5 +1,6 @@
 from transformers import AutoTokenizer, AutoModel
 import streamlit as st 
+import torch.nn.functional as F
 import torch 
 
 # title 
@@ -24,7 +25,7 @@ def classify(model_name: str, user_input: str):
 
     # run model on tokenized input 
     with torch.no_grad():
-        outputs = model(**(batch.cuda()) )
+        outputs = model(**batch)
         predictions = F.softmax(outputs.logits, dim=1)
         labels = torch.argmax(predictions, dim= 1)
         labels = [model.config.id2label[label_id] for label_id in labels.tolist()]
