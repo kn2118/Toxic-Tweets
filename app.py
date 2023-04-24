@@ -16,7 +16,7 @@ if user_input == "":
 
 tokenizer = AutoTokenizer.from_pretrained("Kev07/Toxic-Tweets")
 model = AutoModelForSequenceClassification.from_pretrained("Kev07/Toxic-Tweets")
-predictions = []
+res = []
 labels = ["toxic", "severe_toxic", "obscene", "threat", "insult", "identity_hate"]
 
 # f: input -> classification
@@ -48,13 +48,13 @@ def classify(model_name: str, user_input: str):
             index_second = probs.index(second_max)
 
             # update results
-            predictions.append((first_max, index_first, second_max, index_second))
+            res.append((first_max, index_first, second_max, index_second))
         data = {
                 "tweet": test_input,
-                "highest class": [ labels[predictions[i][1]] for i in range(len(predictions)) ], 
-                "highest percentage": [ predictions[i][0] for i in range(len(predictions))],
-                "second highest class": [ labels[predictions[i][3]] for i in range(len(predictions)) ], 
-                "second highest percentage": [ predictions[i][2] for i in range(len(predictions))]
+                "highest class": [ labels[ res[i][1]] for i in range(len( res)) ], 
+                "highest percentage": [  res[i][0] for i in range(len( res))],
+                "second highest class": [ labels[ res[i][3]] for i in range(len( res)) ], 
+                "second highest percentage": [ res[i][2] for i in range(len( res))]
                 }
         df = pd.DataFrame(data=data)
         st.table(df) 
