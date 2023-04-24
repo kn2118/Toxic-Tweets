@@ -35,7 +35,7 @@ def classify(model_name: str, user_input: str):
                       ]
         test_input.append(user_input)
         for text in test_input:
-            batch = tokenizer(text, truncation=True, padding=True, return_tensors="pt")
+            batch = tokenizer(text, truncation=True, padding='max_length', return_tensors="pt")
             with torch.no_grad():
                 outputs = model(**batch)
                 predictions = torch.sigmoid(outputs.logits)*100

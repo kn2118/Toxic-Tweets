@@ -2,4 +2,8 @@ streamlit
 transformers 
 numpy 
 easyocr
+pipeline 
+tensorflow 
+pandas
+torch
 Pillow
