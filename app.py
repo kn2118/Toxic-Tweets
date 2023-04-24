@@ -1,4 +1,4 @@
-from transformers import pipeline, AutoTokenizer, AutoModel
+from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification
 import streamlit as st 
 import torch 
 import pandas as pd 
@@ -15,7 +15,7 @@ if user_input == "":
     user_input = "I am amazing!"
 
 tokenizer = AutoTokenizer.from_pretrained("Kev07/Toxic-Tweets")
-model = AutoModel.from_pretrained("Kev07/Toxic-Tweets")
+model = AutoModelForSequenceClassification.from_pretrained("Kev07/Toxic-Tweets")
 predictions = []
 labels = ["toxic", "severe_toxic", "obscene", "threat", "insult", "identity_hate"]
 
