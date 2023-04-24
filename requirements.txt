@@ -3,3 +3,4 @@ transformers
 numpy 
 easyocr
 Pillow
+torch
