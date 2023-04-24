@@ -26,9 +26,13 @@ def classify(model_name: str, user_input: str):
     # run model on tokenized input 
     with torch.no_grad():
         outputs = model(**batch)
+        print(outputs)
         predictions = F.softmax(outputs.logits, dim=1)
+        print(predictions)
         labels = torch.argmax(predictions, dim= 1)
+        print(labels)
         labels = [model.config.id2label[label_id] for label_id in labels.tolist()]
+        print(labels)
 
         # print classifier 
         st.write("\nInput: ", user_input)
