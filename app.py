@@ -1,6 +1,5 @@
 from transformers import AutoTokenizer, AutoModel
 import streamlit as st 
-import torch.nn.functional as F
 import torch 
 
 # title 
@@ -14,25 +13,20 @@ user_input = st.text_input("I am amazing!")
 if user_input == "":
     user_input = "I am amazing!"
 
-# f: input -> classification
-def classify(model_name: str, user_input: str):
-    # load model and tokenizer
-    tokenizer = AutoTokenizer.from_pretrained("Kev07/Toxic-Tweets")
-    model = AutoModel.from_pretrained("Kev07/Toxic-Tweets")
+tokenizer = AutoTokenizer.from_pretrained("Kev07/Toxic-Tweets")
+model = AutoModel.from_pretrained("Kev07/Toxic-Tweets")
 
-    # tokenize input
+# f: input -> classification
+def classify(user_input: str):
     batch = tokenizer(user_input, truncation=True, padding='max_length', return_tensors="pt")
 
     # run model on tokenized input 
     with torch.no_grad():
         outputs = model(**batch)
-        print(outputs)
-        predictions = F.softmax(outputs.logits, dim=1)
-        print(predictions)
+        predictions = torch.sigmoid(outputs.logits)*100
         labels = torch.argmax(predictions, dim= 1)
-        print(labels)
         labels = [model.config.id2label[label_id] for label_id in labels.tolist()]
-        print(labels)
+        
 
         # print classifier 
         st.write("\nInput: ", user_input)
@@ -40,7 +34,7 @@ def classify(model_name: str, user_input: str):
         st.write("Accuracy: ", max(predictions))
 
 if st.button('classify'):
-    classify("", user_input)
+    classify(user_input)
 
 
 
