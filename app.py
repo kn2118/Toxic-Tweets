@@ -1,3 +1,6 @@
+# Author: Kevin Ng
+# Date: 4/29/2023 
+
 from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification
 import streamlit as st 
 import torch 
